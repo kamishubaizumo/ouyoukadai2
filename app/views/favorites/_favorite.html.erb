@@ -8,7 +8,7 @@
           <% else %>
           <p>
             <%= link_to book_favorites_path(obj), method: :post do %>
-              ♡</i><%= obj.favorites.count %>いいね
+              ♡<%= obj.favorites.count %>いいね
             <% end %>
           </p>
           <% end %>

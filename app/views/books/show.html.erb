@@ -24,6 +24,16 @@
             <% end %>
 
         <%= render "favorites/favorite" , obj: @book %>
+        <p>コメント件数:<%= @book.book_comments.count %></p>
+
+        <% @book.book_comments.each do |comments| %>
+          <%= book_comment.user.name %><%= book_comment.comment%>
+        <% end %>
+        <% form_with model:[@book,@book_comment] do |f| %>
+          <%= f.text_area :comment,rows: "5", placeholder: "コメント" %>
+          <%= f.submit "書き込む"%>
+        <% end %>
+          <p><%= link_to "#{@book.book_comments.count} コメント", book_path(@book.id) %></p>
         </tr>
       </table>
     </div>
