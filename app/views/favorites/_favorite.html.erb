@@ -1,0 +1,15 @@
+          <td>
+          <% if obj.favorited_by?(current_user) %>
+          <p>
+           <%= link_to book_favorites_path(obj), method: :delete do %>
+             ♥<%= obj.favorites.count %>いいね
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to book_favorites_path(obj), method: :post do %>
+              ♡</i><%= obj.favorites.count %>いいね
+            <% end %>
+          </p>
+          <% end %>
+          </td>
