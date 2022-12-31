@@ -4,7 +4,7 @@ class SearchsController < ApplicationController
   def search
     @range = params[:range]
     
-    if @range == "User"
+    if @range == "user"
       @users = User.looks(params[:seach], params[:wprd])
       render "searchs/search_result"
     else
