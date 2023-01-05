@@ -1,0 +1,8 @@
+<h2>favorites List</h2>
+
+<% if favorite.exists? %>
+  <%= render "books/index", books: @books %>
+<% else %>
+ <p>お気に入りの投稿はありません</p>
+<% end %>
+

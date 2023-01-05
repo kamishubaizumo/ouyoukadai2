@@ -9,8 +9,43 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
-      
-      
+    </div>
+    <div>
+      <table class="table">
+        <caption>投稿記録</caption>
+        <thead>
+          <tr>
+            <th>昨日の投稿数</th>
+            <th>昨日との投稿差</th>
+            <th>今日の投稿数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @yesterday_book.count %></td>
+            <td>
+              <% if @yesterday_book.count == 0 %>
+                前日の投稿はありません
+              <% else e%>
+                <% @the_day_before = @today_book.count / @yesterday_book.count.to_f %>
+                <%#the_day_beforeを定義。今日の投稿数と、÷　昨日の投稿数　小数点付き%>
+                <%= (@the_day_before * 100).round %>
+                <%# .roundで、小数点以下を四捨五入している。%>
+              <% end %>
+            </td>
+            <td><%= @today_book.count %></td>
+          </tr>
+        </tbody>
+        <thead>
+          <th>先週の合計投稿数</th>
+          <th>先週と今週の投稿差</th>
+          <th>一週間の合計投稿数</th>
+        </thead>
+        <tbody>
+          <td></td>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>

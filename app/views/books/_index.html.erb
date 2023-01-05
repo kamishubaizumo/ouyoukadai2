@@ -9,29 +9,17 @@
   </thead>
   <tbody>
     <% books.each do |book| %>
-      <tr>
+      <tr id="book_<%= book.id %>">
         <td><%= link_to(book.user) do %>
           <%= image_tag book.user.get_profile_image, size:'50x50' %>
           <% end %>
         </td>
         <td><%= link_to book.title,book %></td>
         <td><%= book.body %></td>
-        <td>コメント数:<%= book.book_comments.count %></td>
+        <td class="comments-count">コメント数:<%= book.book_comments.count %></td>
         
-        <td id="favorite_buttons_<%= book.id %>"><%= render "favorites/favorite", book: book %></td>
+        <td class="favorite_button"><%= render "favorites/favorite", book: book %></td>
       </tr>
     <% end %>
   </tbody>
-</table>hint: You've added another git repository inside your current repository.
-hint: Clones of the outer repository will not contain the contents of
-hint: the embedded repository and will not know how to obtain it.
-hint: If you meant to add a submodule, use:
-hint: 
-hint:   git submodule add <url> ouyoukadai2
-hint: 
-hint: If you added this path by mistake, you can remove it from the
-hint: index with:
-hint: 
-hint:   git rm --cached ouyoukadai2
-hint: 
-hint: See "git help submodule" for more information.
+</table>
