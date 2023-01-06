@@ -1,14 +1,24 @@
-<div id="post_raty"></div>
+<div id="post_raty">
+
+</div>
 <script>
   // scriptファイルをどのidの部分に配置するかを指定
   let elem = document.querySelector('#post_raty');
   let opt = {
     //星画像の指定などのオプションをここに記述,
     number: 5,
+    starHalf: "<%= asset_path('star-half.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
 
+    half: true,
+
+    scoreName: "evaluations[evaluation]",
    };
   raty(elem,opt);
+  // 何故かハーフが適応されない。
 </script>
+
 
 <%= form_with model:book,local:true do |f| %>
   <div class="form-group">
